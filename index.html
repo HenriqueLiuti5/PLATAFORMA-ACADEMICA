@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Plataforma Acadêmica</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <title>EduSync - Plataforma Acadêmica</title>
+        <h1>EduSync</h1>
+            <form id="loginForm">
+                <select id="perfil" required>
+                    <option value="">Selecione o Perfil</option>
+                    <option value="aluno">Aluno</option>
+                    <option value="professor">Professor</option>
+                </select>
+                <input type="text" id="usuario" placeholder="Usuário" required>
+                <input type="password" id="senha" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+                <p id="loginMessage" class="message"></p>
+            </form>
+        </div>
+        <script src="js/auth.js"></script>
+        <script src="js/main.js"></script>
+</body>
+</html>

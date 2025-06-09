@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Professor</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Plataforma Acadêmica</h1>
+        <nav>
+            <a href="professor.html">Cadastrar Notas</a>
+            <a href="index.html">Sair</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Cadastrar Notas e Frequência</h2>
+
+        <form id="notasForm">
+            <label for="aluno">Selecione o aluno:</label>
+            <select id="aluno" required></select>
+
+            <h3>Notas (0 a 10)</h3>
+            <div class="grid">
+                <input type="number" placeholder="Matemática" id="matematica" min="0" max="10" step="0.1">
+                <input type="number" placeholder="Português" id="portugues" min="0" max="10" step="0.1">
+                <input type="number" placeholder="História" id="historia" min="0" max="10" step="0.1">
+                <input type="number" placeholder="Geografia" id="geografia" min="0" max="10" step="0.1">
+                <input type="number" placeholder="Física" id="fisica" min="0" max="10" step="0.1">
+                <input type="number" placeholder="Química" id="quimica" min="0" max="10" step="0.1">
+                <input type="number" placeholder="Biologia" id="biologia" min="0" max="10" step="0.1">
+                <input type="number" placeholder="Inglês" id="ingles" min="0" max="10" step="0.1">
+            </div>
+
+            <h3>Frequência (%)</h3>
+            <input type="number" id="frequencia" placeholder="Frequência Geral" min="0" max="100" required>
+
+            <button type="submit">Salvar</button>
+            <p id="mensagem" class="message"></p>
+        </form>
+    </main>
+    <script src="js/database.js"></script>
+    <script src="js/professor.js"></script>
+</body>
+</html>
