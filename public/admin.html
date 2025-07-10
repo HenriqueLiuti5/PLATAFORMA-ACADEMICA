@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Usuários</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Gerenciamento de Usuários</h1>
+        <p class="admin-desc">Adicione, edite ou remova contas. Cada usuário pode ter permissões diferentes na plataforma.</p>
+        <nav style="display: flex; justify-content: flex-end; align-items: center; margin-top: 2rem;">
+            <button id="openCreateUser" class="btn-highlight">Criar usuário</button>
+            <a href="index.html" class="btn-outline" style="margin-left:1rem;">Sair</a>
+        </nav>
+    </header>
+    <main>
+        <section class="admin-table-card">
+            <table id="usersTable">
+                <thead>
+                    <tr>
+                        <th>Usuário</th>
+                        <th>Perfil</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Usuários serão listados aqui -->
+                </tbody>
+            </table>
+        </section>
+        <section id="createUserModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <h2>Criar Nova Conta</h2>
+                <form id="createUserForm">
+                    <input type="text" id="novoUsuario" placeholder="Usuário" required>
+                    <input type="password" id="novaSenha" placeholder="Senha" required>
+                    <select id="novoPerfil" required>
+                        <option value="">Selecione o Perfil</option>
+                        <option value="aluno">Aluno</option>
+                        <option value="professor">Professor</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+                    <div style="display:flex; gap:1rem; margin-top:1rem;">
+                        <button type="submit" class="btn-highlight" style="flex:1;">Criar Conta</button>
+                        <button type="button" id="closeCreateUser" class="btn-outline" style="flex:1;">Cancelar</button>
+                    </div>
+                    <p id="createUserMessage" class="message"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script>
+if (localStorage.getItem('admin-auth') !== 'true') {
+    window.location.href = 'admin-login.html';
+}
+</script>
+    <script src="../src/js/database.js"></script>
+    <script src="../src/js/admin.js"></script>
+</body>
+</html> 

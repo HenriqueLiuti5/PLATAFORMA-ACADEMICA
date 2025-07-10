@@ -1,0 +1,464 @@
+:root {
+    --primary-color: #2A4759;
+    --accent-color: #F79B72;
+    --light-gray: #EEEEEE;
+    --gray: #DDDDDD;
+    --text-color: #2A4759;
+    --bg-color: #F9F9F9;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-heading: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-main);
+}
+
+body {
+    background-color: var(--bg-color);
+    animation: fadeInBody 1.2s ease-out;
+}
+
+@keyframes fadeInBody {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+header {
+    background: var(--primary-color);
+    box-shadow: 0 4px 16px rgba(42,71,89,0.08);
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    color: white;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(42,71,89,0.08);
+}
+
+h2, h3 {
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(42,71,89,0.08);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    background: transparent;
+}
+
+nav a {
+    color: white;
+    background-color: var(--accent-color);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(247,155,114,0.08);
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.12);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: -1;
+}
+
+nav a:hover, nav a:focus {
+    background: linear-gradient(90deg, var(--accent-color) 80%, #f7b48a 100%);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 4px 16px rgba(247,155,114,0.18);
+}
+
+nav a:hover::after, nav a:focus::after {
+    opacity: 1;
+}
+
+main {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s cubic-bezier(.39,.575,.565,1) both;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(42,71,89,0.10);
+    transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.login-container:hover {
+    box-shadow: 0 16px 48px rgba(42,71,89,0.13);
+    transform: translateY(-2px) scale(1.01);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, select, button {
+    padding: 0.8rem 1rem;
+    margin-top: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+    transition: box-shadow 0.3s, border-color 0.3s, background 0.3s, color 0.3s, transform 0.2s;
+}
+
+input:focus, select:focus {
+    box-shadow: 0 0 0 3px rgba(247,155,114,0.18);
+    border-color: var(--primary-color);
+    background: #fff8f4;
+}
+
+button {
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 8px rgba(247,155,114,0.10);
+    border-radius: 8px;
+    font-size: 1.08rem;
+    letter-spacing: 0.5px;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+button:hover {
+    background-color: #e4865d;
+}
+
+.message {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    animation: fadeInBody 0.7s;
+    transition: background 0.3s, color 0.3s, border-left 0.3s;
+}
+
+.error {
+    background-color: #ffe5e0;
+    color: #d32f2f;
+    border-left: 5px solid #f44336;
+    animation: fadeInUp 0.7s;
+}
+
+.success {
+    background-color: #e0f4e0;
+    color: #2e7d32;
+    border-left: 5px solid #4caf50;
+    animation: fadeInUp 0.7s;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background-color: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(42,71,89,0.08);
+    transition: box-shadow 0.3s;
+}
+
+table:hover {
+    box-shadow: 0 8px 32px rgba(42,71,89,0.13);
+}
+
+th, td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--gray);
+    text-align: left;
+}
+
+th {
+    background: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 2px 8px rgba(42,71,89,0.08);
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+}
+
+#usersTable td {
+    vertical-align: middle;
+    padding: 1rem 0.5rem;
+}
+
+#usersTable button {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 0.6rem 0;
+}
+
+#usersTable button:last-child {
+    margin-bottom: 0;
+}
+
+#usersTable tr {
+    border: none;
+}
+
+#usersTable input[type="text"], #usersTable select {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+#usersTable {
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(42,71,89,0.10);
+    overflow: hidden;
+    background: white;
+    margin: 0 auto;
+}
+#usersTable thead tr {
+    border-radius: 0;
+}
+#usersTable th {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    font-size: 1.08rem;
+    padding: 1rem 0.7rem;
+    border: none;
+}
+#usersTable th:first-child {
+    border-top-left-radius: 16px;
+}
+#usersTable th:last-child {
+    border-top-right-radius: 16px;
+}
+#usersTable tbody tr {
+    background: #fff;
+    transition: background 0.2s;
+}
+#usersTable tbody tr:nth-child(even) {
+    background: #f6f8fa;
+}
+#usersTable td {
+    padding: 1rem 0.7rem;
+    border-bottom: 1px solid #ececec;
+    vertical-align: middle;
+}
+#usersTable tbody tr:last-child td {
+    border-bottom: none;
+}
+#usersTable input[type="text"], #usersTable select {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 0.6rem 0.8rem;
+    box-shadow: 0 2px 8px rgba(42,71,89,0.04);
+    transition: box-shadow 0.2s, border-color 0.2s;
+    font-size: 1rem;
+}
+#usersTable input[type="text"]:focus, #usersTable select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(247,155,114,0.18);
+    outline: none;
+}
+#usersTable .actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+#usersTable button {
+    flex: 1 1 0;
+    min-width: 80px;
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 0.6rem 0;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    box-shadow: 0 2px 8px rgba(42,71,89,0.04);
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4em;
+}
+#usersTable button:first-child {
+    background: #4caf50;
+    color: #fff;
+}
+#usersTable button:first-child:hover {
+    background: #388e3c;
+    transform: translateY(-2px) scale(1.04);
+}
+#usersTable button:last-child {
+    background: #d32f2f;
+    color: #fff;
+}
+#usersTable button:last-child:hover {
+    background: #b71c1c;
+    transform: translateY(-2px) scale(1.04);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.grid input {
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.grid input:focus {
+    box-shadow: 0 0 0 3px rgba(42,71,89,0.13);
+    border-color: var(--accent-color);
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- ADMIN PAGE MODERN --- */
+header h1 {
+    font-size: 2.3rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+.admin-desc {
+    color: #ffffff;
+    font-size: 1.08rem;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    max-width: 600px;
+}
+.admin-table-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(42,71,89,0.10);
+    padding: 2rem 1.5rem;
+    margin: 2rem auto 0 auto;
+    max-width: 900px;
+}
+.btn-highlight {
+    background: var(--accent-color);
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.7rem 2.2rem;
+    font-size: 1.08rem;
+    box-shadow: 0 2px 8px rgba(247,155,114,0.10);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+.btn-highlight:hover {
+    background: #e4865d;
+    transform: translateY(-2px) scale(1.04);
+}
+.btn-outline {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 2rem;
+    padding: 0.7rem 2.2rem;
+    font-size: 1.08rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+.modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(42,71,89,0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.modal-content {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(42,71,89,0.13);
+    padding: 2.5rem 2rem 2rem 2rem;
+    min-width: 320px;
+    max-width: 95vw;
+    width: 400px;
+    position: relative;
+}
+.modal-content h2 {
+    margin-bottom: 1.2rem;
+    font-size: 1.3rem;
+    font-family: var(--font-heading);
+}
+@media (max-width: 600px) {
+    .admin-table-card, .modal-content {
+        padding: 1rem 0.5rem;
+        width: 98vw;
+    }
+    header h1, .admin-desc {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+}
